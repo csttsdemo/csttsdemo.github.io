@@ -31,352 +31,237 @@ audio {
 </style>
 </head>
 <body>
-    <h2>Audio samples for the paper: Voice Conversion Across Arbitrary Speakers based on a Single Target-Speaker Utterance. </h2>
-  <ul>
-    <li>The models are trained using VCTK corpus. Audios are resampled to 16kHz.</li>
-    <li>In the sequel, "1 sample" means that i-vector or speaker embedding of a new target speaker are computed using one target speaker's utterance and so on so forth. "IVC Converted" denotes the converted speech using the i-vector-based VC model (please refer to the paper for the details), while "SEVC converted" denotes the converted speech using the speaker-encoder-based VC model.</li>
-  </ul>
+    <h2>Audio samples for paper: End-to-End Code-Switched TTS with Mix of Monolingual Recordings. </h2>
+
+  <div><b>Authors:</b> Yuewen Cao, Xixin Wu, Songxiang Liu, Jianwei Yu, Xu Li, Zhiyong Wu, Xunying Liu, Helen Meng</div>
+    <div><b>Abstract:</b> State-of-the-art text-to-speech (TTS) synthesis models can produce monolingual speech with high intelligibility and naturalness. However, when the models are applied to synthesize code-switched (CS) speech, the performance declines seriously. Conventionally, developing a CS TTS system requires multilingual data to incorporate language-specific and cross-lingual knowledge. Recently, end-to-end (E2E) architecture has achieved satisfactory results in monolingual TTS. The architecture enables the training from one end of alphabetic text input to the other end of acoustic feature output. In this paper, we explore the use of E2E framework for CS TTS, using a combination of Mandarin and English monolingual speech corpus uttered by two female speakers. To handle alphabetic input from different languages, we explore two kinds of encoders: (1) shared multilingual encoder with explicit language embedding (LDE); (2) separated monolingual encoder (SPE) for each language. The two systems use identical decoder architecture, where a discriminative code is incorporated to enable the model to generate speech in one speaker's voice consistently. Experiments confirm the effectiveness of the proposed modifications on the E2E TTS framework in terms of quality and speaker similarity of the generated speech. Moreover, our proposed systems can generate controllable foreign-accented speech at character-level using only mixture of monolingual training data. </div>
+  <div><b>Corpora:</b> American English speech corpus from Blizzard challenge 2011 and Mandarin speech corpus from Th-coss.</div> 
+  <div><b>Notes:</b> All utterances below are unseen by the systems during training. Since this work focuses on exploring the efficacy of using end-to-end framework for code-switched TTS using a combination of monolingual data, all audio samples were synthesized using the Griffin-Lim algorithm for fast experiment cycles.</div> 
+
 
     <h3>System Comparison</h3>
-
-      <!-- MF -->
-    <h4>Male-to-Female:</h4>
-    <table border="1">
-    <tr>
-      <td>Number of samples</td>
-      <td>Source Utterance</td>
-      <td>Target Utterance</td>
-      <td>IVC Converted</td>
-      <td>SEVC Converted</td>
-    </tr>
-    <!-- MF 1 sample 4 pieces of audios  -->
-    <tr>
-      <td>1 sample</td>
-      <td>
-        <audio controls>
-        <source src="src-GT-MF.wav" type="audio/wav">
-        </audio>
-      </td>
-      <td>
-        <audio controls>
-        <source src="tgt-GT-F.wav" type="audio/wav">
-        </audio>
-      </td>
-      <td>
-        <audio controls>
-        <source src="ivcN01MF.wav" type="audio/wav">
-        </audio>
-      </td>
-      <td>
-        <audio controls>
-        <source src="SEN01MF.wav" type="audio/wav">
-        </audio>
-      </td>      
-    </tr>
-    <!-- FF 5 sample 4 pieces of audios  -->
-    <tr>
-      <td>5 samples</td>
-      <td>
-        <audio controls>
-        <source src="src-GT-MF.wav" type="audio/wav">
-        </audio>
-      </td>
-      <td>
-        <audio controls>
-        <source src="tgt-GT-F.wav" type="audio/wav">
-        </audio>
-      </td>
-      <td>
-        <audio controls>
-        <source src="ivcN05MF.wav" type="audio/wav">
-        </audio>
-      </td>
-      <td>
-        <audio controls>
-        <source src="SEN05MF.wav" type="audio/wav">
-        </audio>
-      </td>      
-    </tr>
-    <!-- FF 10 sample 4 pieces of audios  -->
-    <tr>
-      <td>10 samples</td>
-      <td>
-        <audio controls>
-        <source src="src-GT-MF.wav" type="audio/wav">
-        </audio>
-      </td>
-      <td>
-        <audio controls>
-        <source src="tgt-GT-F.wav" type="audio/wav">
-        </audio>
-      </td>
-      <td>
-        <audio controls>
-        <source src="ivcN10MF.wav" type="audio/wav">
-        </audio>
-      </td>
-      <td>
-        <audio controls>
-        <source src="SEN10MF.wav" type="audio/wav">
-        </audio>
-      </td>      
-    </tr>
+    <div>
+    <table>
+    <tr><td> <strong>"Tac"</strong>: Baseline Tacotron system.</td></tr>    
+    <tr><td> <strong>"LDE-S1"</strong>: The system is composed of a shared multilingual encoder with explicit language embedding (LDE) and a decoder conditioned on the discriminative code of the American speaker (S1). </td></tr>
+    <tr><td> <strong>"SPE-S1"</strong>: The system is composed of separated encoders for each language (SPE) and a decoder conditioned on the discriminative code of the American speaker (S1). </td></tr>
+   <tr><td> <strong>"LDE-S2"</strong>: The system is composed of a shared multilingual encoder with explicit language embedding (LDE) and a decoder conditioned on the discriminative code of the Mandarin speaker (S2). </td></tr>
+   <tr><td> <strong>"SPE-S2"</strong>: The system is composed of separated encoders for each language (SPE) and a decoder conditioned on the discriminative code of the Mandarin speaker (S2). </td></tr>
+    <tr><td> <strong>"GT"</strong>: The ground truth audio samples of American and Mandarin speaker. </td></tr>
     </table>
+    </div>
 
-  <!-- FF -->
-  <h4>Female-to-Female:</h4>
-    <table border="1">
+<br> 
+
+    <table border="1" align='center'>
     <tr>
-      <td>Number of samples</td>
-      <td>Source Utterance</td>
-      <td>Target Utterance</td>
-      <td>IVC Converted</td>
-      <td>SEVC Converted</td>
+      <td align="center">Systems</td>
+      <td align="center">Mandarin Text</td>
+      <td align="center">English Text</td>
+      <td align="center">Code-switched Text</td>
     </tr>
-    <!-- FF 1 sample 4 pieces of audios  -->
+    <!-- Text input  -->
     <tr>
-      <td>1 sample</td>
-      <td>
-        <audio controls>
-        <source src="src-GT-FF.wav" type="audio/wav">
-        </audio>
+      <td>Transcript</td>
+      <td align="center">
+        挑剔大跨国公司的一些做法.
       </td>
-      <td>
-        <audio controls>
-        <source src="tgt-GT-F.wav" type="audio/wav">
-        </audio>
+      <td align="center">
+        Hobby farmers work on solving sheep shearing problem.
       </td>
-      <td>
-        <audio controls>
-        <source src="ivcN01FF.wav" type="audio/wav">
-        </audio>
-      </td>
-      <td>
-        <audio controls>
-        <source src="SEN01FF.wav" type="audio/wav">
-        </audio>
-      </td>      
-    </tr>
-    <!-- FF 5 sample 4 pieces of audios  -->
+      <td align="center">
+        That's why 很多人都用地铁.
+      </td>    
+    </tr>    
+    <!-- Tac sample 3 pieces of audios  -->
     <tr>
-      <td>5 samples</td>
-      <td>
+      <td>Tac</td>
+      <td align="center">
         <audio controls>
-        <source src="src-GT-FF.wav" type="audio/wav">
+        <source src="wav/Tac-CH.wav" type="audio/wav">
         </audio>
       </td>
-      <td>
+      <td align="center">
         <audio controls>
-        <source src="tgt-GT-F.wav" type="audio/wav">
+        <source src="wav/Tac-EN.wav" type="audio/wav">
         </audio>
       </td>
-      <td>
+      <td align="center">
         <audio controls>
-        <source src="ivcN05FF.wav" type="audio/wav">
+        <source src="wav/Tac-CS.wav" type="audio/wav">
         </audio>
-      </td>
-      <td>
-        <audio controls>
-        <source src="SEN05FF.wav" type="audio/wav">
-        </audio>
-      </td>      
+      </td>    
     </tr>
-    <!-- FF 10 sample 4 pieces of audios  -->
+    <!-- LDE-S1 sample 3 pieces of audios  -->
     <tr>
-      <td>10 samples</td>
-      <td>
+      <td>LDE-S1</td>
+      <td align="center">
         <audio controls>
-        <source src="src-GT-FF.wav" type="audio/wav">
+        <source src="wav/LDE-S1-CH.wav" type="audio/wav">
         </audio>
       </td>
-      <td>
+      <td align="center">
         <audio controls>
-        <source src="tgt-GT-F.wav" type="audio/wav">
+        <source src="wav/LDE-S1-EN.wav" type="audio/wav">
         </audio>
       </td>
-      <td>
+      <td align="center">
         <audio controls>
-        <source src="ivcN10FF.wav" type="audio/wav">
+        <source src="wav/LDE-S1-CS.wav" type="audio/wav">
         </audio>
       </td>
-      <td>
-        <audio controls>
-        <source src="SEN10FF.wav" type="audio/wav">
-        </audio>
-      </td>      
     </tr>
+    <!-- SPE-S1 sample 3 pieces of audios  -->
+    <tr>
+      <td>SPE-S1</td>
+      <td align="center">
+        <audio controls>
+        <source src="wav/SPE-S1-CH.wav" type="audio/wav">
+        </audio>
+      </td>
+      <td align="center">
+        <audio controls>
+        <source src="wav/SPE-S1-EN.wav" type="audio/wav">
+        </audio>
+      </td>
+      <td align="center">
+        <audio controls>
+        <source src="wav/SPE-S1-CS.wav" type="audio/wav">
+        </audio>
+      </td>
+    </tr>
+    <!-- LDE-S2 sample 3 pieces of audios  -->
+    <tr>
+      <td>LDE-S2</td>
+      <td align="center">
+        <audio controls>
+        <source src="wav/LDE-S2-CH.wav" type="audio/wav">
+        </audio>
+      </td>
+      <td align="center">
+        <audio controls>
+        <source src="wav/LDE-S2-EN.wav" type="audio/wav">
+        </audio>
+      </td>
+      <td align="center">
+        <audio controls>
+        <source src="wav/LDE-S2-CS.wav" type="audio/wav">
+        </audio>
+      </td>
+    </tr>
+    <!-- SPE-S2 sample 3 pieces of audios  -->
+    <tr>
+      <td>SPE-S2</td>
+      <td align="center">
+        <audio controls>
+        <source src="wav/SPE-S2-CH.wav" type="audio/wav">
+        </audio>
+      </td>
+      <td align="center">
+        <audio controls>
+        <source src="wav/SPE-S2-EN.wav" type="audio/wav">
+        </audio>
+      </td>
+      <td align="center">
+        <audio controls>
+        <source src="wav/SPE-S2-CS.wav" type="audio/wav">
+        </audio>
+      </td>
+    </tr>    
+    <!-- GT sample 3 pieces of audios  -->
+    <tr>
+      <td>GT</td>
+      <td align="center">
+        <audio controls>
+        <source src="wav/GT-CH.wav" type="audio/wav">
+        </audio>
+      </td>
+      <td align="center">
+        <audio controls>
+        <source src="wav/GT-EN.wav" type="audio/wav">
+        </audio>
+      </td>
+      <td  align="center">
+        None
+      </td>
+    </tr>     
     </table>
 
 
-    <!-- FM -->
-    <h4>Female-to-Male:</h4>
-    <table border="1">
-    <tr>
-      <td>Number of samples</td>
-      <td>Source Utterance</td>
-      <td>Target Utterance</td>
-      <td>IVC Converted</td>
-      <td>SEVC Converted</td>
-    </tr>
-    <!-- FM 1 sample 4 pieces of audios  -->
-    <tr>
-      <td>1 sample</td>
-      <td>
-        <audio controls>
-        <source src="src-GT-FM.wav" type="audio/wav">
-        </audio>
-      </td>
-      <td>
-        <audio controls>
-        <source src="tgt-GT-M.wav" type="audio/wav">
-        </audio>
-      </td>
-      <td>
-        <audio controls>
-        <source src="ivcN01FM.wav" type="audio/wav">
-        </audio>
-      </td>
-      <td>
-        <audio controls>
-        <source src="SEN01FM.wav" type="audio/wav">
-        </audio>
-      </td>      
-    </tr>
-    <!-- FF 5 sample 4 pieces of audios  -->
-    <tr>
-      <td>5 samples</td>
-      <td>
-        <audio controls>
-        <source src="src-GT-FM.wav" type="audio/wav">
-        </audio>
-      </td>
-      <td>
-        <audio controls>
-        <source src="tgt-GT-M.wav" type="audio/wav">
-        </audio>
-      </td>
-      <td>
-        <audio controls>
-        <source src="ivcN05FM.wav" type="audio/wav">
-        </audio>
-      </td>
-      <td>
-        <audio controls>
-        <source src="SEN05FM.wav" type="audio/wav">
-        </audio>
-      </td>      
-    </tr>
-    <!-- FF 10 sample 4 pieces of audios  -->
-    <tr>
-      <td>10 samples</td>
-      <td>
-        <audio controls>
-        <source src="src-GT-FM.wav" type="audio/wav">
-        </audio>
-      </td>
-      <td>
-        <audio controls>
-        <source src="tgt-GT-M.wav" type="audio/wav">
-        </audio>
-      </td>
-      <td>
-        <audio controls>
-        <source src="ivcN10FM.wav" type="audio/wav">
-        </audio>
-      </td>
-      <td>
-        <audio controls>
-        <source src="SEN10FM.wav" type="audio/wav">
-        </audio>
-      </td>      
-    </tr>
+<br>
+
+    <h3>Accent Degree Evaluation</h3>
+    <div>
+    <table> 
+    <tr><td> <strong>"LDE-S1-CH"</strong>: Synthesizing Mandarin speech (CH) using LDE system and the discriminative code of the American speaker (S1) with accent coefficient set to <b>0</b>, <b>0.5</b>, <b>1</b>.</td></tr>
+    <tr><td> <strong>"SPE-S1-CH"</strong>: Synthesizing Mandarin speech (CH) using SPE system and the discriminative code of the American speaker (S1) with accent coefficient set to <b>0</b>, <b>0.5</b>, <b>1</b>.</td></tr>
+    <tr><td> <strong>"GT-S2-CH"</strong>: The ground truth audio samples of Mandarin speaker (S2). </td></tr>
     </table>
+    </div>
 
 
-    <!-- MM -->
-    <h4>Male-to-Male:</h4>
-    <table border="1">
+    <table border="1" align='center'>
     <tr>
-      <td>Number of samples</td>
-      <td>Source Utterance</td>
-      <td>Target Utterance</td>
-      <td>IVC Converted</td>
-      <td>SEVC Converted</td>
+      <td align="center">Systems</td>
+      <td align="center">Accent Coefficient=0</td>
+      <td align="center">Accent Coefficient=0.5</td>
+      <td align="center">Accent Coefficient=1</td>
     </tr>
-    <!-- MM 1 sample 4 pieces of audios  -->
+    <div align="center"> Text: 让无视交通规则的人受到了教育.</div>
+    <!-- LDE-S1-CH sample 3 pieces of audios  -->
     <tr>
-      <td>1 sample</td>
-      <td>
-        <audio controls>
-        <source src="src-GT-MM.wav" type="audio/wav">
+      <td>LDE-S1-CH</td>
+      <td align="center">
+        <audio controls align="center">
+        <source src="wav/acc/LDE-S1-CH-0.wav" type="audio/wav">
         </audio>
       </td>
-      <td>
+      <td align="center">
         <audio controls>
-        <source src="tgt-GT-M.wav" type="audio/wav">
+        <source src="wav/acc/LDE-S1-CH-0.5.wav" type="audio/wav">
         </audio>
       </td>
-      <td>
+      <td align="center">
         <audio controls>
-        <source src="ivcN01MM.wav" type="audio/wav">
+        <source src="wav/acc/LDE-S1-CH-1.wav" type="audio/wav">
         </audio>
-      </td>
-      <td>
-        <audio controls>
-        <source src="SEN01MM.wav" type="audio/wav">
-        </audio>
-      </td>      
+      </td>    
     </tr>
-    <!-- FF 5 sample 4 pieces of audios  -->
+    <!-- SPE-S1-CH sample 3 pieces of audios  -->
     <tr>
-      <td>5 samples</td>
-      <td>
+      <td>SPE-S1-CH</td>
+      <td align="center">
         <audio controls>
-        <source src="src-GT-MM.wav" type="audio/wav">
+        <source src="wav/acc/SPE-S1-CH-0.wav" type="audio/wav">
         </audio>
       </td>
-      <td>
+      <td align="center">
         <audio controls>
-        <source src="tgt-GT-M.wav" type="audio/wav">
+        <source src="wav/acc/SPE-S1-CH-0.waV" type="audio/wav">
         </audio>
       </td>
-      <td>
+      <td align="center">
         <audio controls>
-        <source src="ivcN05MM.wav" type="audio/wav">
+        <source src="wav/acc/SPE-S1-CH-1.waV" type="audio/wav">
         </audio>
       </td>
-      <td>
-        <audio controls>
-        <source src="SEN05MM.wav" type="audio/wav">
-        </audio>
-      </td>      
     </tr>
-    <!-- FF 10 sample 4 pieces of audios  -->
+    <!-- GT-S2-CH sample 3 pieces of audios  -->
     <tr>
-      <td>10 samples</td>
-      <td>
+      <td>GT-S2-CH</td>
+      <td colspan="3" align="center">
         <audio controls>
-        <source src="src-GT-MM.wav" type="audio/wav">
+        <source src="wav/acc/GT-S2-CH.wav" type="audio/wav">
         </audio>
       </td>
       <td>
-        <audio controls>
-        <source src="tgt-GT-M.wav" type="audio/wav">
-        </audio>
-      </td>
-      <td>
-        <audio controls>
-        <source src="ivcN10MM.wav" type="audio/wav">
-        </audio>
-      </td>
-      <td>
-        <audio controls>
-        <source src="SEN10MM.wav" type="audio/wav">
-        </audio>
-      </td>      
+
     </tr>
+  
     </table>
-       
+ 
+
+ 
 
 </body>
 </html>
